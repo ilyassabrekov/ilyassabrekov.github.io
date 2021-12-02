@@ -2,10 +2,50 @@ body{
 	font-family: Arial, sans-serif;
 }
 
+.preloader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    background: #fff;
+    transition: all 0.5s;
+    opacity: 1;
+}
+.preloader-remove {
+    opacity: 0;
+    z-index: -10;
+}
+
+.preloader svg {
+    max-width: 25em;
+    border-radius: 3px;
+    background: #FFF;
+    fill: none;
+    stroke: #BFE2FF;
+    stroke-linecap: round;
+    stroke-width: 12%
+}
+.preloader use {
+    stroke: #337AB7;
+    animation: preloader-a 2s linear infinite
+}
+
+@keyframes preloader-a {
+    to { 
+        stroke-dashoffset: 0px 
+    } 
+}
+
 nav{
 	width: 100%;
 	height: 30px;
 	background: #344051;
+	position: fixed;
 }
 
 .logo{
@@ -14,6 +54,16 @@ nav{
 	line-height: 30px;
 	padding-left: 280px;
 	float: left;
+	-webkit-animation: coming 2s;
+	animation: coming 2s;
+}
+
+@keyframes coming {
+	from{
+		opacity: 0;
+	} to {
+		opacity: 1;
+	}
 }
 
 .menu{
@@ -28,11 +78,58 @@ nav{
 	margin-right: 30px;
 	font-size: 14px;
 	text-transform: uppercase;
+	-webkit-animation: topshift 2s forwards;
+	animation : topshift 2s forwards;
+	opacity: 0;
+	display: inline-block;
+	transform: scale(1);
 }
 
-.main{
+.menu li a:visited{
+	color: white;
+}
+
+.menu li:active{
+	transform: scale(1.2);
+}
+
+.menu li a:hover{
+	color: orange;
+}
+
+.menu li:nth-child(2){
+	animation-delay: 0.4s;
+}
+
+.menu li:nth-child(3){
+	animation-delay: 0.8s;
+}
+
+.menu li:nth-child(4){
+	animation-delay: 1.2s;
+}
+
+.menu li:nth-child(5){
+	animation-delay: 1.6s;
+}
+
+.menu li:nth-child(6){
+	animation-delay: 2s;
+}
+
+@keyframes topshift{
+	from{
+		opacity: 0;
+		margin-top: -80px;
+	} to {
+		opacity: 1;
+		margin-top: 0px;
+	}
+}
+
+.step1{
 	width: 100%;
-	height: calc(100% - 60px);
+	height: 650px;
 	background: url(../img/boy.png) 85% 100%/auto 90% no-repeat, url(../img/bg.jpg) center/cover no-repeat;
 }
 
@@ -41,6 +138,7 @@ nav{
 	color: #2c384a;
 	margin: 180px 0px 0px 300px;
 	text-align: center;
+	animation: leftshift 2s;
 }
 
 .title__container h1{
@@ -66,9 +164,40 @@ nav{
 	margin: 40px 14px 0px 14px;
 }
 
+.title__container input:hover{
+	background: #344051;
+	color: white;
+}
+
+.title__container input:active{
+	transform: scale(1.1);
+}
+
+@keyframes leftshift{
+	from{
+		opacity: 0;
+		margin-left: -300px;
+	} to {
+		opacity: 1;
+		margin-left: 300px;
+}
+}
+
 .step2{
 	text-align: center;
 	height: 550px;
+	width: 100%;
+	animation: animation_step2 4s;
+}
+
+@keyframes animation_step2{
+	from{
+		opacity: 0;
+		margin-left: -580px;
+	} to {
+		opacity: 1;
+		text-align: center;
+}
 }
 
 .step2 h2{
@@ -109,12 +238,26 @@ background-size: auto 80%;
 	padding: 4px;
 }
 
+.step2 input{
+	transform: all 0.2s;
+}
+
+.step2 input:hover{
+	background: #344051;
+	color: white;
+}
+
+.step2 input:active{
+	transform: scale(1.1);
+}
+
 .step3{
 	text-align: center;
 	background: url(../img/bg2.jpg) center/cover no-repeat;
 	width: 100%;
-	height: 100%;
+	height: 550px;
 }
+
 
 .step3 h2{
 	padding-top: 80px;
@@ -147,6 +290,7 @@ background-size: auto 80%;
 .step4{
 	height: 1000px;
 }
+
 .step4 h2{
 	text-align: center;
 	padding-top: 80px;
@@ -210,6 +354,19 @@ background-size: auto 80%;
 	text-transform: uppercase;
 }
 
+.step4 input{
+	transform: all 0.2s;
+}
+
+.step4 input:hover{
+	background: #344051;
+	color: white;
+}
+
+.step4 input:active{
+	transform: scale(1.1);
+}
+
 .step5{
 	height: 650px;
 }
@@ -250,8 +407,16 @@ background-size: auto 80%;
 
 .step6{
 	height: 500px;
-	background: url(../img/bg3.png);
 	text-align: center;
+	background: url(../img/bg3.png);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+
+.paralax_img{
+
 }
 
 .step6 h2{
@@ -291,6 +456,17 @@ background-size: auto 80%;
 .step7{
 	height: 600px;
 	text-align: center;
+	animation: animation_step7 6s;
+}
+
+@keyframes animation_step7{
+	from{
+		opacity: 0;
+		margin-left: -580px;
+	} to {
+		opacity: 1;
+		text-align: center;
+}
 }
 
 .step7 h2{
@@ -390,6 +566,19 @@ margin-bottom: 40px;
 	color: #ffffff;
 	border: 1px solid;
 	background: transparent;
+}
+
+.sent input{
+	transform: all 0.2s;
+}
+
+.sent input:hover{
+	background: #344051;
+	color: white;
+}
+
+.sent input:active{
+	transform: scale(1.1);
 }
 
 footer{
